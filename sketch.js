@@ -35,7 +35,7 @@
    if(gameState === PLAY){
   
     if(keyWentDown("space"))  {
-      spawnBullets();  
+      generateBullets();  
    }
 
      space.velocityY= 5;
@@ -45,7 +45,7 @@
        space.y = space.height/2;
      }
   
-     spawnEnemy();
+     generateEnemy();
        
    }
    
@@ -70,7 +70,7 @@
      text("Score:  "+score,300,30); 
    }
   
-  function spawnEnemy() {
+  function generateEnemy() {
    if(World.frameCount%40===0){
      var enemy = createSprite(300,0);
      enemy.addImage(enemyImage);
@@ -82,7 +82,7 @@
    }
  }
  
- function spawnBullets() {
+ function generateBullets() {
    var bullet = createSprite(300,380,5,10);
    bullet.x = player.x;
    bullet.shapeColor = "red"; 
