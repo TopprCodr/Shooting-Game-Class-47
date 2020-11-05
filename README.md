@@ -1,1 +1,1 @@
-Mario game using P5 Library
+Shooter game using P5 Library
