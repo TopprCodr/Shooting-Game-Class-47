@@ -1,6 +1,6 @@
    
-   var PLAY = 0;
-   var gameState = PLAY;
+   
+   var gameState = "play";
    var score =0;
 
    function preload(){
@@ -10,13 +10,13 @@
    }
    
    function setup(){
-     createCanvas(500,500)
-    space = createSprite(0, 0 ,400, 400);
+    createCanvas(displayWidth,displayHeight)
+    space = createSprite(width, height);
     space.addImage(spaceImage);  
-    space.scale=3
+    space.scale=5
     space.y = space.height/2;
     
-    player = createSprite(200, 460);
+    player = createSprite(width/2, height-100);
     player.addImage(spaceshipImage);
     player.scale= 0.5;
 
@@ -32,7 +32,7 @@
   
    background("black");
    
-   if(gameState === PLAY){
+   if(gameState === "play"){
   
     if(keyWentDown("space"))  {
       generateBullets();  
@@ -41,7 +41,7 @@
      space.velocityY= 5;
      player.x = World.mouseX;
    
-     if (space.y > 500) {       
+     if (space.y > height) {       
        space.y = space.height/2;
      }
   
@@ -59,7 +59,7 @@
  
    for (var i = 0; i < EnemyGroup.length; i++) {
      var temp1=EnemyGroup.get(i);
-     if(temp1.y>500){
+     if(temp1.y>height+50){
      temp1.destroy();
      score = score-1;
    }
@@ -74,7 +74,7 @@
    if(World.frameCount%40===0){
      var enemy = createSprite(300,0);
      enemy.addImage(enemyImage);
-     enemy.x = random(20,500);
+    enemy.x = random(20,width-20);
      enemy.velocityY = 5;
      enemy.scale = 0.5;
      enemy.lifetime = 300;
@@ -85,6 +85,7 @@
  function generateBullets() {
    var bullet = createSprite(300,380,5,10);
    bullet.x = player.x;
+   bullet.y = player.y;
    bullet.shapeColor = "red"; 
    bullet.velocityY = -10;
    bullet.depth = player.depth-1;
