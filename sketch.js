@@ -10,7 +10,7 @@
    }
    
    function setup(){
-    createCanvas(displayWidth,displayHeight)
+    createCanvas(displayWidth,displayHeight-80)
     space = createSprite(width, height);
     space.addImage(spaceImage);  
     space.scale=5
@@ -18,7 +18,7 @@
     
     player = createSprite(width/2, height-100);
     player.addImage(spaceshipImage);
-    player.scale= 0.5;
+    
 
     EnemyGroup = new Group();
     BulletGroup = new Group();
