@@ -16,7 +16,7 @@
     space.scale=5
     space.y = space.height/2;
     
-    player = createSprite(width/2, height-100);
+    player = createSprite(width/2, height-200);
     player.addImage(spaceshipImage);
     
 
